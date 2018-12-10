@@ -9,7 +9,7 @@ const app = express();
 //MongoDB Atlas
 //mongoose.connect('mongodb+srv://cronayne:GtQFeTwEPgFwGUDA@nodejs-f1sha.mongodb.net/node_js?retryWrites=true', { useNewUrlParser: true })
 //Localhost
-mongoose.connect('mongodb://localhost:27017/node_js')
+mongoose.connect('mongodb://localhost:27017/node_js', { useNewUrlParser: true })
   .then(() => {
     console.log('Connected to the Database');
   })
