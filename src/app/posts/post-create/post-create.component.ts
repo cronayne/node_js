@@ -6,14 +6,14 @@ import { Subscription } from 'rxjs';
 import { PostsService } from '../posts.service';
 import { Post } from '../posts.model';
 import { mimeType } from './mime-type.validator';
-import { AuthService } from 'src/app/auth/auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-post-create',
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css']
 })
-export class PostCreateComponent implements OnInit, OnDestroy{
+export class PostCreateComponent implements OnInit, OnDestroy {
   enteredTitle = '';
   enteredContent = '';
   post: Post;
@@ -31,7 +31,7 @@ export class PostCreateComponent implements OnInit, OnDestroy{
   ) {}
 
   ngOnInit() {
-    this.authService
+    this.authStatusSub = this.authService
     .getAuthStatusListener()
     .subscribe(
       authStatus => {
