@@ -9,7 +9,12 @@ const userRoutes = require("./routes/users");
 const app = express();
 
 //MongoDB Atlas
-//mongoose.connect('mongodb+srv://cronayne:GtQFeTwEPgFwGUDA@nodejs-f1sha.mongodb.net/node_js?retryWrites=true', { useNewUrlParser: true })
+//mongoose.connect(
+  //'mongodb+srv://cronayne:" +
+  //process.env.MONGO_ATLAS_PW +
+  //"@nodejs-f1sha.mongodb.net/node_js?retryWrites=true', { useNewUrlParser: true }
+  //)
+
 //Localhost
 mongoose.connect('mongodb://localhost:27017/node_js', { useNewUrlParser: true })
   .then(() => {
