@@ -22,7 +22,7 @@ router.post("/signup", (req, res, next) => {
         })
         .catch(err => {
           res.status(500).json({
-            error: err
+              message: 'This email address has been taken, please try another one'
           });
         });
     });
@@ -34,7 +34,7 @@ router.post("/login", (req, res, next) => {
     .then(user => {
       if (!user) {
         return res.status(401).json({
-          message: "Auth failed"
+          message: 'Please enter a valid email and password!'
         });
       }
       fetchedUser = user;
@@ -43,7 +43,7 @@ router.post("/login", (req, res, next) => {
     .then(result => {
       if (!result) {
         return res.status(401).json({
-          message: "Auth failed"
+          message: 'Please enter a valid email and password!'
         });
       }
       const token = jwt.sign(
@@ -59,7 +59,7 @@ router.post("/login", (req, res, next) => {
     })
     .catch(err => {
       return res.status(401).json({
-        message: "Auth failed"
+        message: 'Authentication has failed, please contact support or try again'
       });
     });
 });
